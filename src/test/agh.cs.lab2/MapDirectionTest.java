@@ -27,5 +27,13 @@ public class MapDirectionTest {
         Assertions.assertEquals(MapDirection.NORTH, MapDirection.EAST.previous());
     }
 
+    @Test
+    public void toUnitVectorTest(){
+        Assertions.assertEquals("(0,1)", MapDirection.NORTH.toUnitVector().toString());
+        Assertions.assertEquals("(0,-1)", MapDirection.SOUTH.toUnitVector().toString());
+        Assertions.assertEquals("(1,0)", MapDirection.EAST.toUnitVector().toString());
+        Assertions.assertEquals("(-1,0)", MapDirection.WEST.toUnitVector().toString());
+    }
+
 
 }

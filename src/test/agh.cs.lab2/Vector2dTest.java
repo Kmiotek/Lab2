@@ -7,11 +7,11 @@ public class Vector2dTest {
     public void equalsTest(){
         Vector2d v1 = new Vector2d(0, 10), v2 = new Vector2d(0, 10), v3 = new Vector2d(-1, 10), v4 = new Vector2d(0, -10);
         int a = 0;
-        Assertions.assertEquals(true, v1.equals(v1));
-        Assertions.assertEquals(false, v1.equals(a));
-        Assertions.assertEquals(true, v1.equals(v2));
-        Assertions.assertEquals(false, v1.equals(v3));
-        Assertions.assertEquals(false, v1.equals(v4));
+        Assertions.assertEquals(v1, v1);
+        Assertions.assertNotEquals(a, v1);
+        Assertions.assertEquals(v2, v1);
+        Assertions.assertNotEquals(v3, v1);
+        Assertions.assertNotEquals(v4, v1);
     }
 
     @Test
@@ -24,21 +24,21 @@ public class Vector2dTest {
     @Test
     public void precedesTest(){
         Vector2d v1 = new Vector2d(0, 10), v2 = new Vector2d(0, 10), v3 = new Vector2d(-1, 11), v4 = new Vector2d(-4, -10);
-        Assertions.assertEquals(false, v1.precedes(v1));
-        Assertions.assertEquals(false, v1.precedes(v2));
-        Assertions.assertEquals(false, v3.precedes(v1));
-        Assertions.assertEquals(true, v1.precedes(v4));
-        Assertions.assertEquals(false, v4.precedes(v1));
+        Assertions.assertFalse(v1.precedes(v1));
+        Assertions.assertFalse(v1.precedes(v2));
+        Assertions.assertFalse(v3.precedes(v1));
+        Assertions.assertTrue(v1.precedes(v4));
+        Assertions.assertFalse(v4.precedes(v1));
     }
 
     @Test
     public void followsTest(){
         Vector2d v1 = new Vector2d(0, 10), v2 = new Vector2d(0, 10), v3 = new Vector2d(-1, 11), v4 = new Vector2d(-4, -10);
-        Assertions.assertEquals(false, v1.follows(v1));
-        Assertions.assertEquals(false, v1.follows(v2));
-        Assertions.assertEquals(false, v3.follows(v1));
-        Assertions.assertEquals(false, v1.follows(v4));
-        Assertions.assertEquals(true, v4.follows(v1));
+        Assertions.assertFalse(v1.follows(v1));
+        Assertions.assertFalse(v1.follows(v2));
+        Assertions.assertFalse(v3.follows(v1));
+        Assertions.assertFalse(v1.follows(v4));
+        Assertions.assertTrue(v4.follows(v1));
     }
 
     @Test
